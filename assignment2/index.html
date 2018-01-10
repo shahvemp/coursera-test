@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app='ShoppingListApp'>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="app.js"></script>
+   <link rel="stylesheet" href="style.css">
+   
+    <title>Assignment 2</title>
+  </head>
+  <body>
+    <div ng-controller='ShoppingListController'>
+      
+      <h3>ToBuy List:</h3>
+      <div ng-if="ToBuy.length==0">
+        
+        Already Bought
+      </div>
+      <ul>
+        <li ng-repeat="item in ToBuy" >{{$index + 1}} Buy {{item.quantity}} of {{item.name}}(s) 
+          <button ng-click= "bought($index)"  >Bought</button> 
+
+        </li><br>
+        <br></ul>
+
+     Item:<input type="text" ng-model="newitemname" placeholder="enter item">
+     Quantity:<input type="number" ng-model="newitemquantity" ng-pattern="/^[0-9]/" required placeholder="enter quantity">
+     <button ng-click="addItem()"> Add Item</button>
+
+     <div ng-if="boughtlist.length==0">
+        
+        Nothing Bought yet
+      </div>
+     <ul>
+        <li ng-repeat="item in boughtlist">{{$index+1}}. Bought {{item.quantity}} of {{item.name}}(s) 
+          </li><br>
+      </ul>
+
+</div>
+  </body>
+</html>
+    
